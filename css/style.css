@@ -275,6 +275,110 @@ p {
     text-decoration: none;
     transition: all 0.3s ease-in-out;
 }
+#aboutUs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 80px 20px; /* Odstępy góra/dół + lewo/prawo */
+    background-color: #f8f8f8;
+}
+#aboutUs .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1500; /* Ograniczenie szerokości */
+    width: 100%;
+}
+.about-image-container {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie poziome */
+    align-items: flex-end; /* Wyrównanie do dołu */
+    height: 100%; /* Zapewnienie, że kontener zajmuje całą dostępną wysokość */
+    padding-top: 150px; /* Zwiększ, jeśli obraz wciąż jest za wysoko */
+}
+
+.about-image {
+    max-width: 100%; /* Unikanie przekroczenia szerokości */
+    height: auto; /* Zachowanie proporcji */
+    display: block;
+    margin-bottom: -30px; /* Możesz dostosować, jeśli chcesz jeszcze bardziej w dół */
+}
+
+/* Kafelki w sekcji "O Nas" */
+/* Kafelki w sekcji "O Nas" */
+.about-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Odstęp między kafelkami */
+    margin-top: 20px;
+}
+
+.about-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    max-width: 550px; /* Ograniczenie szerokości kafelków */
+    min-height: 90px; /* Ustala jednolitą wysokość dla wszystkich kafelków */
+}
+
+.about-card:hover {
+    transform: scale(1.02);
+}
+
+.about-card i {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.about-text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Wyrównanie tekstu w pionie */
+}
+about-image-container {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie zdjęcia */
+    margin-top: 20px; /* Dodanie odstępu nad zdjęciem */
+}
+
+/* Stylizacja zdjęcia */
+.about-image {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dodatkowy odstęp dla przycisku */
+.about-button {
+    margin-top: 30px; /* Większy odstęp nad przyciskiem */
+}
+.about-text h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #005490;
+}
+
+.about-text p {
+    font-size: 14px;
+    color: #555;
+}
+#aboutUs img.about-image {
+    display: block !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 15px !important; /* Zaokrąglenie rogów */
+    object-fit: cover !important; /* Dopasowanie */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important; /* Cień */
+}
 #aboutUs h1 {
     font-size: 36px;
     color: #000000;
@@ -409,6 +513,53 @@ a.read_more2:hover {
     .oferta-item {
         flex: 1 1 calc(50% - 10px); /* 2 kolumny w wierszu dla urządzeń mobilnych */
     }
+    #aboutUs {
+        padding: 50px 10px;
+    }
+    #aboutUs h1 {
+        font-size: 28px;
+    }
+    #aboutUs p {
+        font-size: 14px;
+        max-width: 90%;
+    }
+    .about-card {
+        width: 100%;
+    }
+    .col-md-6 {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Wyśrodkowanie poziome */
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        padding: 15px 0 0 0px; /* Opcjonalne zmniejszenie paddingu */
+    }
+    .about-cards {
+        width: 95%; /* Dostosowanie szerokości */
+        max-width: 400px; /* Maksymalna szerokość */
+    }
+
+    .about-card {
+        width: 100%;
+        max-width: 100%; /* Ograniczenie szerokości kart */
+        text-align: left; /* Jeśli chcesz lekko w lewo */
+        margin-left: auto; /* Wyrównanie do lewej */
+        margin-right: auto; /* Wyrównanie do środka */
+    }
+    .about-image-container {
+        align-items: center; /* Wyśrodkowanie na telefonach */
+        padding-top: 15px; /* Mniejsze przesunięcie */
+    }
+
+    .about-image {
+        margin-top: 15px; /* Mniejsze przesunięcie */
+        width: 100%; /* Pełna szerokość */
+    }
+    /* Opcjonalnie można zmniejszyć padding */
+    .about-card p {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -443,9 +594,15 @@ a.read_more2:hover {
 /* Services
 ---------------------------------*/
 
-#service {
-    padding: 60px 0px;
-    background: #f9f9f9;
+#services {
+    padding: 100px 0; /* Większa sekcja */
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#services .container {
+    max-width: 1400px; /* Poszerzenie kontenera */
+    margin: 0 auto;
 }
 .service_wrapper {
     display: flex;
@@ -470,7 +627,11 @@ a.read_more2:hover {
     width: 90px;
     height: 90px;
     margin: 0px auto 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .service_icon.icon2 {
     border: 2px solid #005490;
@@ -525,6 +686,10 @@ a.read_more2:hover {
     color: #005490;
     text-decoration: none;
     font-weight: bold;
+}
+.service_icon img {
+    width: 50px; /* Dostosowana szerokość ikony */
+    height: 50px; /* Dostosowana wysokość ikony */
 }
 .service_block a:hover {
     text-decoration: underline;
@@ -623,66 +788,71 @@ a.contact_btn:hover {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
     z-index: 1000;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-  }
-  
-  .gallery-content {
+}
+
+.gallery-content {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-  }
-  
-  .gallery-image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  
-  .gallery-navigation {
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.gallery-image {
+    max-width: 90vw;  /* Maksymalna szerokość */
+    max-height: 90vh; /* Maksymalna wysokość */
+    object-fit: contain; /* Zdjęcie nie traci proporcji i nie jest rozciągane */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-image:hover {
+    transform: scale(1.02); /* Efekt lekkiego powiększenia przy najechaniu */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.gallery-navigation {
     position: absolute;
     top: 50%;
     width: 100%;
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
-  }
-  
-  .gallery-navigation .prev,
-  .gallery-navigation .next {
+}
+
+.gallery-navigation .prev,
+.gallery-navigation .next {
     background: rgba(255, 255, 255, 0.6);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 24px;
-    color: #000;
+    color: black;
     transition: background 0.3s;
-  }
-  
-  .gallery-navigation .prev:hover,
-  .gallery-navigation .next:hover {
+}
+
+.gallery-navigation .prev:hover,
+.gallery-navigation .next:hover {
     background: rgba(255, 255, 255, 0.8);
-  }
-  
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    z-index: 1001;
-  }
-  
-  .image-counter {
+}
+
+.image-counter {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -693,10 +863,16 @@ a.contact_btn:hover {
     border-radius: 5px;
     font-size: 14px;
     font-weight: bold;
-    z-index: 10;
     text-align: center;
+}
+
+  
+  .gallery-navigation .prev:hover,
+  .gallery-navigation .next:hover {
+    background: rgba(255, 255, 255, 0.8);
   }
   
+
   button.prev:disabled,
   button.next:disabled {
     opacity: 0.5;
@@ -1043,70 +1219,83 @@ img {
 /* Team
 ---------------------------------*/
 .team_section {
-    max-width: 993px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.team .row {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie elementów w wierszu */
+    flex-wrap: wrap; /* Przełamywanie wierszy na mniejszych ekranach */
+    gap: 20px; /* Odstęp między członkami zespołu */
 }
 .team {
     padding: 60px 0;
     text-align: center;
   }
   
-  .team h2 {
+.team h2 {
     font-size: 36px;
     color: #222;
     margin-bottom: 10px;
   }
   
-  .team h6 {
+.team h6 {
     font-size: 16px;
     color: #888;
     margin-bottom: 40px;
   }
   
-  .member {
+  .team .member {
+    display: flex;
+    flex-direction: column; /* Ustawienie zdjęcia na górze, tekst pod nim */
+    align-items: center; 
     text-align: center;
-    margin-bottom: 40px;
-  }
+    max-width: 350px; /* Ograniczenie szerokości */
+    margin: 0 auto; /* Wyśrodkowanie */
+}
+
   
-  .member-avatar {
-    margin: 0 auto 20px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .member-avatar img {
+.team .member-avatar {
     width: 100%;
-    height: 100%;
+    max-width: 250px; /* Stała szerokość dla jednolitego wyglądu */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px; /* Odstęp między zdjęciem a tekstem */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+  
+.team .member-avatar img {
+    width: 100%;
+    height: auto;
     object-fit: cover;
-  }
+}
   
-  .member-info {
+.team .member-info {
     padding: 10px;
-  }
+}
+
   
-  .member-info h4 {
+.team .member-info h4 {
     font-size: 20px;
     color: #005490;
-    margin-bottom: 5px;
-  }
+    font-weight: bold;
+}
   
-  .member-info .designation {
-    display: block;
+.team .member-info .designation {
     font-size: 14px;
     color: #888;
-    margin-bottom: 10px;
     text-transform: uppercase;
-  }
+    margin-bottom: 10px;
+}
   
-  .member-info p {
+.team .member-info p {
     font-size: 14px;
     color: #555;
     line-height: 1.6;
-    margin: 0;
-  }
+    max-width: 350px; /* Ograniczenie szerokości tekstu */
+}
   .btn-primary {
     font-size: 18px;
     padding: 15px 40px;
@@ -1130,9 +1319,10 @@ img {
     transform: scale(1.1);
     transition: 0.3s ease;
   }
-  #aboutUs {
-    padding: 60px 0;
-    text-align: center; 
+#aboutUs {
+    padding: 80px 0;
+    background-color: #f8f8f8;
+    text-align: center;
 }
 .img-circle {
 border-radius: 0%;
@@ -1214,18 +1404,24 @@ transition: all .25s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    width: 180px; /* Teraz wszystkie przyciski mają tę samą szerokość */
-    height: 50px;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 16px;
+    gap: 12px;
+    width: 200px;
+    height: 55px;
+    padding: 12px 20px;
+    font-size: 18px;
     font-weight: bold;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
     transition: 0.3s ease-in-out;
     border: none;
-    color: white;
-  }
+}
+
+.contact-btn img {
+    width: 20px;  /* Ustawienie stałej szerokości */
+    height: 20px; /* Ustawienie stałej wysokości */
+    display: inline-block;
+}
   
   .contact-btn i {
     font-size: 18px;
@@ -1244,12 +1440,24 @@ transition: all .25s ease;
   
   /* Copyright */
   .copyright {
-    margin-top: 30px;
-    padding: 15px 0;
-    font-size: 14px;
-    color: #aaa;
-    background-color: #222;
-  }
+    margin-top: 40px;
+    padding: 20px 0;
+    font-size: 20px; /* Powiększona czcionka */
+    font-weight: bold;
+    text-align: center;
+    background-color: #222; /* Ciemne tło */
+    color: #FFFFFF; /* Biały tekst */
+}
+
+.copyright a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.copyright a:hover {
+    text-decoration: underline;
+}
   
 
 .social_links {
@@ -2104,9 +2312,7 @@ padding: 20px 0 20px;
     max-width: 800px; /* Ogranicz szerokość tekstu, aby był bardziej czytelny */
     line-height: 1.6;
 }
-#about-section img {
-    display: none; /* Usunięcie obrazka */
-}
+
 
 
 #aboutUs h1 {
@@ -2126,9 +2332,49 @@ padding: 20px 0 20px;
 }
 
 
+
+
+#aboutUs .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+#aboutUs .col-md-6 {
+    flex: 1; /* Równy podział szerokości */
+}
+
 #aboutUs {
     padding: 60px 0;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+#aboutUs .container {
+    padding: 0 10px;
+}
+
+.about-card {
+    width: 95%;
+}
+#aboutUs .col-md-6 {
+    flex: 1;
+}
+
+#aboutUs .text-container {
+    max-width: 600px;
+}
+
+#aboutUs img.about-image {
+    display: block !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 15px !important; /* Zaokrąglenie rogów */
+    object-fit: cover !important; /* Dopasowanie */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important; /* Cień */
 }
 
 
@@ -2151,7 +2397,36 @@ padding: 20px 0 20px;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
 }
+.about-section {
+    display: flex;
+    align-items: center;  /* Wyrównuje wszystko pionowo */
+}
 
+
+
+.about-image-container img {
+    width: 100%; /* Obraz dostosowany do szerokości ekranu */
+    max-width: 450px; /* Maksymalna szerokość dla lepszego dopasowania */
+    border-radius: 12px;
+     /* Zaokrąglenie rogów */
+}
+
+.about-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Mniejsze odstępy na mobilnych */
+    margin-top: 15px;
+}
+
+
+.about-text h4 {
+    font-size: 16px;
+}
+
+.about-text p {
+    font-size: 14px;
+
+}
 #aboutUs .btn-primary:hover {
     background-color: #003a68;
     transform: scale(1.05);
