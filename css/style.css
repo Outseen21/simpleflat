@@ -212,6 +212,28 @@ p {
     margin-top: 30px;
     border-top: 1px solid #DADADA;
 }
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px; /* Odstęp między obrazem a tekstem */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Obrazek wyrównany do lewej */
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 .mrgTop {
     margin-top: 30px;
@@ -224,8 +246,8 @@ p {
     position: relative;
 }
 .hero-header {
-    padding: 60px 0;
-    background-color: #f9f9f9;
+    padding: 100px 0;
+    background-color: #fff
   }
   
   .hero-header h1 {
@@ -263,6 +285,65 @@ p {
   }
 .hero_section {
     position: relative; 
+}
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px; /* Zmniejszona szerokość */
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+/* Zmniejszenie obrazu */
+.hero-image-container {
+    flex: 0.7; /* Zmniejszenie przestrzeni dla obrazu */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 350px; /* Zmniejszony obraz */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Powiększenie tekstu */
+.hero-text {
+    flex: 1.3; /* Większa przestrzeń dla tekstu */
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 42px; /* Powiększony nagłówek */
+    color: #222;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.hero-text .hero-subtext {
+    font-size: 20px; /* Powiększony tekst */
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Przycisk */
+.hero-text .btn-primary {
+    font-size: 18px;
+    padding: 16px 32px;
+    background-color: #005490;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.hero-text .btn-primary:hover {
+    background-color: #003a68;
 }
 #aboutUs .btn-primary {
     font-size: 18px;
@@ -369,6 +450,7 @@ about-image-container {
 
 .about-text p {
     font-size: 14px;
+    text-align: center;
     color: #555;
 }
 #aboutUs img.about-image {
@@ -389,6 +471,7 @@ about-image-container {
     font-size: 18px;
     color: #555;
     margin-bottom: 30px;
+    text-align: center;
   }
 #aboutUs .btn-primary:hover {
     background-color: #003a68;
@@ -513,53 +596,78 @@ a.read_more2:hover {
     .oferta-item {
         flex: 1 1 calc(50% - 10px); /* 2 kolumny w wierszu dla urządzeń mobilnych */
     }
+    #aboutUs .row {
+        flex-direction: column-reverse; /* Przenosi tekst nad obrazem */
+    }
     #aboutUs {
-        padding: 50px 10px;
-    }
-    #aboutUs h1 {
-        font-size: 28px;
-    }
-    #aboutUs p {
-        font-size: 14px;
-        max-width: 90%;
-    }
-    .about-card {
-        width: 100%;
-    }
-    .col-md-6 {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Wyśrodkowanie poziome */
-        justify-content: center;
-        text-align: center;
-        width: 100%;
-        padding: 15px 0 0 0px; /* Opcjonalne zmniejszenie paddingu */
-    }
-    .about-cards {
-        width: 95%; /* Dostosowanie szerokości */
-        max-width: 400px; /* Maksymalna szerokość */
-    }
-
-    .about-card {
-        width: 100%;
-        max-width: 100%; /* Ograniczenie szerokości kart */
-        text-align: left; /* Jeśli chcesz lekko w lewo */
-        margin-left: auto; /* Wyrównanie do lewej */
-        margin-right: auto; /* Wyrównanie do środka */
+        flex-direction: column; /* Obrazek nad tekstem */
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
     .about-image-container {
-        align-items: center; /* Wyśrodkowanie na telefonach */
-        padding-top: 15px; /* Mniejsze przesunięcie */
+        justify-content: center;
+        padding-top: 10px;
+        text-align: center;
+        margin-bottom: 20px;
     }
 
     .about-image {
-        margin-top: 15px; /* Mniejsze przesunięcie */
-        width: 100%; /* Pełna szerokość */
+        max-width: 100%; /* Pełna szerokość na małych ekranach */
+        width: auto;
+        height: auto;
     }
-    /* Opcjonalnie można zmniejszyć padding */
-    .about-card p {
-        font-size: 14px;
+
+    .about-text {
+        text-align: center;
+        padding: 20px;
     }
+
+    .about-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-card {
+        width: 90%;
+        max-width: 400px;
+    }
+    #hero_section {
+        flex-direction: column-reverse; /* Obraz pod tekstem */
+        text-align: center;
+        padding: 20px 10px; /* Dostosowane marginesy */
+    }
+    .hero-text {
+        order: -1; /* Przycisk idzie wyżej */
+        margin-bottom: 20px; /* Odstęp od obrazka */
+    }
+
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-image-container {
+        order: 0; /* Przesuwa obrazek pod przycisk */
+
+        margin-top: 0px; /* Dodaje odstęp od przycisku */
+    }
+ .hero-text {
+        order: -1; /* Przycisk na górze */
+        margin-bottom: 10px; /* Mniejszy odstęp pod przyciskiem */
+    }
+
+    .hero-text h1 {
+        font-size: 28px; /* Zmniejszony tytuł na mobile */
+    }
+
+    .hero-text p {
+        font-size: 16px; /* Czytelny tekst na mobile */
+    }
+
+   
 }
 
 @media (max-width: 480px) {
@@ -943,6 +1051,7 @@ a.contact_btn:hover {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 .portfolio-grid {
@@ -2338,7 +2447,7 @@ padding: 20px 0 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+
     flex-wrap: wrap;
 }
 #aboutUs .col-md-6 {

@@ -42,10 +42,8 @@ function openGallery(project) {
         return;
     }
 
-    // 🔹 Zapisywanie pozycji scrolla
     lastScrollPosition = window.scrollY;
 
-    // 🔹 Tworzenie czarnego tła z pozycją fixed dla poprawnego działania na telefonach
     let overlay = document.createElement("div");
     overlay.id = "gallery-overlay";
     overlay.style.position = "fixed";
@@ -58,16 +56,15 @@ function openGallery(project) {
     overlay.style.display = "flex";
     overlay.style.justifyContent = "center";
     overlay.style.alignItems = "center";
-    overlay.style.overflowY = "auto"; // Pozwala na przewijanie galerii na telefonach
+    overlay.style.overflowY = "auto";
     document.body.appendChild(overlay);
 
-    // 🔹 Umieszczanie galerii w overlayu
     modal.style.display = "flex";
     modal.style.position = "relative";
-    modal.style.zIndex = "10001"; // Zapewnia, że modal jest nad overlayem
+    modal.style.zIndex = "10001";
     overlay.appendChild(modal);
 
-    document.body.style.overflow = "hidden"; // Blokuje scroll na tle strony
+    document.body.style.overflow = "hidden";
 
     updateGalleryImage();
 
@@ -83,12 +80,14 @@ function closeGallery() {
         const modal = document.querySelector(`#${currentProject}`);
         modal.style.display = "none";
 
-        // 🔹 Przywracanie scrolla i usuwanie czarnego tła
         document.body.style.overflow = "auto";
         const overlay = document.getElementById("gallery-overlay");
         if (overlay) {
             document.body.removeChild(overlay);
         }
+
+        // 🔹 Przywrócenie modalu do jego pierwotnego miejsca w DOM
+        document.body.appendChild(modal);
 
         currentProject = "";
     }
@@ -115,9 +114,9 @@ function updateGalleryImage() {
 
     modalImage.src = images[currentProject][currentImageIndex];
 
-    modalImage.style.maxWidth = "90vw";  // Maksymalna szerokość
-    modalImage.style.maxHeight = "90vh"; // Maksymalna wysokość
-    modalImage.style.objectFit = "contain"; // Zachowuje proporcje, bez rozciągania
+    modalImage.style.maxWidth = "90vw";
+    modalImage.style.maxHeight = "90vh";
+    modalImage.style.objectFit = "contain";
 
     if (counter) {
         counter.textContent = `Zdjęcie ${currentImageIndex + 1} z ${images[currentProject].length}`;
