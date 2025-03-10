@@ -606,7 +606,7 @@ a.read_more2:hover {
     }
     .about-image-container {
         justify-content: center;
-        padding-top: 10px;
+        padding-top: 150px;
         text-align: center;
         margin-bottom: 20px;
     }
@@ -667,7 +667,9 @@ a.read_more2:hover {
         font-size: 16px; /* Czytelny tekst na mobile */
     }
 
-   
+    .hero-image {
+        max-width: 300px; /* Mniejsze zdjęcie na telefonach */
+    }
 }
 
 @media (max-width: 480px) {
@@ -1479,7 +1481,7 @@ transition: all .25s ease;
 /* Contact
 ---------------------------------*/
 .page_section.contact {
-    padding: 90px 0 100px;
+    padding: 60px 0 50px;
 }
  
 .contact-section {
@@ -1549,7 +1551,7 @@ transition: all .25s ease;
   
   /* Copyright */
   .copyright {
-    margin-top: 40px;
+    margin-top: 00px;
     padding: 20px 0;
     font-size: 20px; /* Powiększona czcionka */
     font-weight: bold;
