@@ -432,11 +432,6 @@ p {
     flex-direction: column;
     justify-content: center; /* Wyrównanie tekstu w pionie */
 }
-about-image-container {
-    display: flex;
-    justify-content: center; /* Wyśrodkowanie zdjęcia */
-    margin-top: 20px; /* Dodanie odstępu nad zdjęciem */
-}
 
 /* Stylizacja zdjęcia */
 .about-image {
@@ -463,8 +458,8 @@ about-image-container {
 }
 #aboutUs img.about-image {
     display: block !important;
-    max-width: 100% !important;
-    height: auto !important;
+    max-width: 450px !important;
+    height: 400px;
     border-radius: 15px !important; /* Zaokrąglenie rogów */
     object-fit: cover !important; /* Dopasowanie */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important; /* Cień */
@@ -566,7 +561,28 @@ a.read_more2:hover {
 
 	
 /* oferta */
+.heroSwiper {
+    width: 100%;
+    height: 100%;
+  }
 
+  /* Swiper Slide */
+  .heroSwiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Obrazki */
+  .heroSwiper .swiper-slide img {
+    max-width: 450px; /* Maksymalna szerokość */
+    max-height: 400px; /* Maksymalna wysokość */
+    width: 100%; /* Zapewnienie responsywności */
+    height: auto; /* Zachowanie proporcji */
+    object-fit: cover; /* Dopasowanie do kontenera */
+    object-position: center;
+    border-radius: 15px
+  }
 .oferta-row {
     display: flex; /* Użycie Flexbox */
     flex-wrap: wrap; /* Pozwala na przełamanie wierszy */
@@ -630,7 +646,15 @@ a.read_more2:hover {
         width: auto;
         height: auto;
     }
-
+    .heroSwiper .swiper-slide img {
+        max-width: 350px; /* Maksymalna szerokość */
+        max-height: 285px; /* Maksymalna wysokość */
+        width: 100%; /* Zapewnienie responsywności */
+        height: auto; /* Zachowanie proporcji */
+        object-fit: cover; /* Dopasowanie do kontenera */
+        object-position: center;
+        border-radius: 15px
+      }
     .about-text {
         text-align: center;
         padding: 20px;

@@ -8,6 +8,7 @@
   <link href="css/style.css" rel="stylesheet" type="text/css"> 
   <link href="css/font-awesome.css" rel="stylesheet" type="text/css"> 
   <link href="css/animate.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   
   <!-- WGRANY FASTTONY PIXEL -->
   <script src="https://pixel.fasttony.com/e19bd03a59aa45808bd732e8790b5f5f" async defer></script>
@@ -54,17 +55,45 @@
 
 <section id="hero_section" class="hero-header wow fadeIn">
   <div class="container hero-container">
-    <div class="hero-image-container">
-      <img src="img/zdjecie2313123.png" alt="Opis obrazka" class="hero-image">
+    
+    <!-- Swiper: 1 slajd, ale zmieniające się obrazy -->
+    <div class="swiper heroSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="img/IMG_1207.jpeg" alt="Zdjęcie 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="img/portfolio1_1.jpg" alt="Zdjęcie 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="img/portfolio1_2.jpg" alt="Zdjęcie 3">
+        </div>
+        <div class="swiper-slide">
+          <img src="img/portfolio1_4.jpg" alt="Zdjęcie 4">
+        </div>
+        <div class="swiper-slide">
+          <img src="img/hero5.jpg" alt="Zdjęcie 5">
+        </div>
+        <div class="swiper-slide">
+          <img src="img/hero6.jpg" alt="Zdjęcie 6">
+        </div>
+        <div class="swiper-slide">
+          <img src="img/hero7.jpg" alt="Zdjęcie 7">
+        </div>
+      </div>
     </div>
+
+    <!-- Tekst i przycisk -->
     <div class="hero-text">
       <h1>Profesjonalne remonty i aranżacje lokali usługowych</h1>
       <p class="hero-subtext">Simple Flat to zespół ekspertów w kompleksowych remontach, adaptacjach i aranżacjach przestrzeni usługowych...</p>
       <p class="hero-subtext">W Simple Flat wierzymy, że każda przestrzeń ma potencjał, który warto wydobyć. Od lat specjalizujemy się w remontach, adaptacjach i aranżacjach lokali usługowych, pomagając naszym klientom stworzyć miejsca, które zachwycają funkcjonalnością i designem.</p>
       <a href="#portfolio" class="btn-primary wow bounceIn" data-wow-delay="0.5s">Poznaj naszą kolekcję</a>
     </div>
+
   </div>
 </section>
+
 
 
 <!--Sekcja Bohater-->
@@ -343,7 +372,21 @@
   // Automatyczna aktualizacja roku w copyright
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".heroSwiper", {
+    effect: "fade", // Efekt płynnej zmiany zdjęć
+    autoplay: {
+      delay: 3000, // Co 3 sekundy
+      disableOnInteraction: false,
+    },
+    speed: 1000, // Płynne przejście
+    loop: true, // Powtarzanie cyklu
+    fadeEffect: {
+      crossFade: true // Łagodniejsze przejście między zdjęciami
+    }
+  });
+</script>
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
