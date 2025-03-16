@@ -231,7 +231,7 @@ $(window).bind('resize', function() {
 });
 
 wow = new WOW({
-  animateClass: 'animate',
+  animateClass: 'animated',
   offset: 100,
   mobile: true 
 });
