@@ -238,3 +238,105 @@ wow = new WOW({
 
 wow.init();
 });
+const toggleFormBtn = document.getElementById("toggleFormBtn");
+const postForm = document.getElementById("postForm");
+const savePostBtn = document.getElementById("savePostBtn");
+const titleInput = document.getElementById("titleInput");
+const contentInput = document.getElementById("contentInput");
+const imageInput = document.getElementById("imageInput");
+const postsContainer = document.getElementById("posts");
+
+let posts = JSON.parse(localStorage.getItem("blogPosts")) || [];
+let editIndex = null;
+
+toggleFormBtn.onclick = () => {
+  postForm.classList.toggle("hidden");
+  clearForm();
+};
+
+function clearForm() {
+  titleInput.value = "";
+  contentInput.value = "";
+  imageInput.value = "";
+  editIndex = null;
+}
+
+function renderPosts() {
+  postsContainer.innerHTML = "";
+  posts.forEach((post, index) => {
+    const postEl = document.createElement("div");
+    postEl.className = "post";
+    postEl.innerHTML = `
+      <div class="post-buttons">
+        <button onclick="editPost(${index})">Edytuj</button>
+        <button onclick="deletePost(${index})">Usuń</button>
+      </div>
+      <h3>${post.title}</h3>
+      <small>${post.date}</small>
+      <p>${post.content}</p>
+      ${post.image ? `<img src="${post.image}" />` : ""}
+    `;
+    postsContainer.appendChild(postEl);
+  });
+}
+
+function deletePost(index) {
+  if (confirm("Na pewno usunąć ten post?")) {
+    posts.splice(index, 1);
+    localStorage.setItem("blogPosts", JSON.stringify(posts));
+    renderPosts();
+  }
+}
+
+function editPost(index) {
+  const post = posts[index];
+  titleInput.value = post.title;
+  contentInput.value = post.content;
+  postForm.classList.remove("hidden");
+  editIndex = index;
+}
+
+savePostBtn.onclick = () => {
+  const title = titleInput.value.trim();
+  const content = contentInput.value.trim();
+  if (!title || !content) return alert("Tytuł i treść są wymagane.");
+
+  const file = imageInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      savePost(title, content, reader.result);
+    };
+    reader.readAsDataURL(file);
+  } else {
+    const image = editIndex !== null ? posts[editIndex].image : null;
+    savePost(title, content, image);
+  }
+};
+
+function savePost(title, content, image) {
+  const post = {
+    title,
+    content,
+    date: new Date().toLocaleDateString(),
+    image: image || null
+  };
+
+  if (editIndex !== null) {
+    posts[editIndex] = post;
+  } else {
+    posts.unshift(post);
+  }
+
+  localStorage.setItem("blogPosts", JSON.stringify(posts));
+  renderPosts();
+  clearForm();
+  postForm.classList.add("hidden");
+}
+
+renderPosts();
+toggleFormBtn.onclick = () => {
+  postForm.classList.remove("hidden");     // pokazuje formularz
+  toggleFormBtn.classList.add("hidden");   // ukrywa przycisk „Dodaj Post”
+  clearForm();
+};

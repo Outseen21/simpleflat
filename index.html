@@ -59,36 +59,29 @@
     <!-- Swiper: 8 slajdów -->
     <div class="swiper heroSwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="img/slajdy1.jpeg" alt="Slajd 1">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/slajdy2.jpeg" alt="Slajd 2">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/slajdy3.jpeg" alt="Slajd 3">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/slajdy4.jpeg" alt="Slajd 4">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/slajdy5.jpeg" alt="Slajd 5">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/slajdy6.jpeg" alt="Slajd 6">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/slajdy7.jpeg" alt="Slajd 7">
-        </div>
-        <div class="swiper-slide">
-          <img src="img/slajdy8.jpeg" alt="Slajd 8">
-        </div>
+        <div class="swiper-slide"><img src="img/slajdy1.jpeg" alt="Slajd 1"></div>
+        <div class="swiper-slide"><img src="img/slajdy2.jpeg" alt="Slajd 2"></div>
+        <div class="swiper-slide"><img src="img/slajdy3.jpeg" alt="Slajd 3"></div>
+        <div class="swiper-slide"><img src="img/slajdy4.jpeg" alt="Slajd 4"></div>
+        <div class="swiper-slide"><img src="img/slajdy5.jpeg" alt="Slajd 5"></div>
+        <div class="swiper-slide"><img src="img/slajdy6.jpeg" alt="Slajd 6"></div>
+        <div class="swiper-slide"><img src="img/slajdy7.jpeg" alt="Slajd 7"></div>
+        <div class="swiper-slide"><img src="img/slajdy8.jpg" alt="Slajd 8"></div>
+        <div class="swiper-slide"><img src="img/slajdy9.jpeg" alt="Slajd 9"></div>
+        <div class="swiper-slide"><img src="img/slajdy10.jpeg" alt="Slajd 10"></div>
+        <div class="swiper-slide"><img src="img/slajdy11.jpeg" alt="Slajd 11"></div>
+        <div class="swiper-slide"><img src="img/slajdy12.jpeg" alt="Slajd 12"></div>
+        <div class="swiper-slide"><img src="img/slajdy12a.jpeg" alt="Slajd 12a"></div>
+        <div class="swiper-slide"><img src="img/slajdy13.jpg" alt="Slajd 13"></div>
+        <div class="swiper-slide"><img src="img/slajdy13a.jpg" alt="Slajd 13a"></div>
+        <div class="swiper-slide"><img src="img/slajdy13b.jpg" alt="Slajd 13b"></div>
       </div>
+      
     </div>
 
     <!-- Tekst i przycisk -->
     <div class="hero-text">
-      <h1>Profesjonalne remonty i aranżacje lokali usługowych</h1>
+      <h1>Kompleksowe realizacje inżynieryjne i adaptacje przestrzeni użytkowych</h1>
       <p class="hero-subtext">Simple Flat to zespół ekspertów w kompleksowych remontach, adaptacjach i aranżacjach przestrzeni usługowych...</p>
       <p class="hero-subtext">W Simple Flat wierzymy, że każda przestrzeń ma potencjał, który warto wydobyć. Od lat specjalizujemy się w remontach, adaptacjach i aranżacjach lokali usługowych, pomagając naszym klientom stworzyć miejsca, które zachwycają funkcjonalnością i designem.</p>
       <a href="#portfolio" class="btn-primary wow bounceIn" data-wow-delay="0.5s">Poznaj naszą kolekcję</a>
@@ -142,7 +135,7 @@
 
       <!-- Obrazek teraz z animacją -->
       <div class="col-md-6 about-image-container wow fadeInLeft" data-wow-delay="0.5s">
-        <img src="img/IMG_1207.jpeg" alt="Nasza firma" class="about-image">
+        <img src="img/onas.png" alt="Nasza firma" class="about-image">
       </div>
     </div>
   </div>
@@ -323,15 +316,27 @@
         </div>
         <div class="member-info">
           <h4>Patryk Bieniek</h4>
-          <span class="designation">Specjalista ds. wykończeń</span>
-          <p>Ekspert w zakresie kompleksowych wykończeń wnętrz i aranżacji przestrzeni.</p>
+          <span class="designation">Prezes Zarządu / Kierownik Budowy</span>
+          <p>Lider z wieloletnim doświadczeniem w realizacji inwestycji budowlanych. Odpowiada za koordynację projektów, nadzór nad pracami budowlanymi oraz strategiczny rozwój firmy.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<section class="blog-section">
+  <h1>Mój Blog Lokalny</h1>
+  <button id="toggleFormBtn">Dodaj Post</button>
 
+  <div id="postForm" class="hidden">
+    <input type="text" id="titleInput" placeholder="Tytuł posta" />
+    <textarea id="contentInput" placeholder="Treść posta"></textarea>
+    <input type="file" id="imageInput" accept="image/*" />
+    <button id="savePostBtn">Zapisz</button>
+  </div>
+
+  <div id="posts"></div>
+</section>
 
 <footer class="footer_wrapper wow fadeIn" id="contact" data-wow-delay="0.3s">
   <div class="container">
@@ -365,7 +370,7 @@
 
     <!-- Copyright -->
     <div class="copyright text-center">
-      <p>&copy; <span id="year"></span> Unikalne. Wszelkie prawa zastrzeżone.</p>
+      <p>&copy; <span id="year"></span> Simple Flat. Wszelkie prawa zastrzeżone.</p>
     </div>
   </div>
 </footer>

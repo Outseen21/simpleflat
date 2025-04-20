@@ -169,7 +169,130 @@ p {
 .navStyle ul li:last-child {
     margin: 0 0 0 23px;
 }
+.blog-section {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
 
+  .blog-section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #444;
+  }
+
+  #toggleFormBtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  #toggleFormBtn:hover {
+    background-color: #0056b3;
+  }
+
+  #toggleFormBtn.hidden {
+    display: none;
+  }
+
+  #postForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  #postForm input[type="text"],
+  #postForm textarea {
+    font-size: 1.1rem;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  #postForm textarea {
+    height: 150px;
+    resize: vertical;
+  }
+
+  #postForm input[type="file"] {
+    border: none;
+  }
+
+  #savePostBtn {
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  #savePostBtn:hover {
+    background-color: #0056b3;
+  }
+
+  .post {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .post h3 {
+    margin: 0 0 10px 0;
+  }
+
+  .post img {
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+
+  .post small {
+    color: #777;
+  }
+
+  .post-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .post-buttons button {
+    margin-left: 5px;
+    background: #6c757d;
+    color: white;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .post-buttons button:hover {
+    background: #5a6268;
+  }
+
+  .image-preview {
+    max-width: 300px;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+
+  .hidden {
+    display: none;
+  }
+  
 .navStyle ul li a {
     display: block;
     font-size: 14px;
@@ -575,14 +698,15 @@ a.read_more2:hover {
 
   /* Obrazki */
   .heroSwiper .swiper-slide img {
-    max-width: 450px; /* Maksymalna szerokość */
-    max-height: 400px; /* Maksymalna wysokość */
-    width: 100%; /* Zapewnienie responsywności */
-    height: auto; /* Zachowanie proporcji */
-    object-fit: cover; /* Dopasowanie do kontenera */
-    object-position: center;
-    border-radius: 15px
-  }
+    width: 100%;
+    height: 350px;           /* Wysokość dla każdego slajdu */
+    max-width: 500px;        /* Maksymalna szerokość */
+    object-fit: cover;       /* Obraz wypełnia cały obszar bez zniekształceń */
+    object-position: center; /* Obraz wyśrodkowany */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
 .oferta-row {
     display: flex; /* Użycie Flexbox */
     flex-wrap: wrap; /* Pozwala na przełamanie wierszy */
@@ -709,6 +833,41 @@ a.read_more2:hover {
         max-width: 380px; /* Mniejsze zdjęcie na telefonach */
         height: 285px;
     }
+    .blog-section {
+        margin: 20px;
+        padding: 20px;
+      }
+    
+      #toggleFormBtn,
+      #savePostBtn {
+        width: 100%;
+        font-size: 1rem;
+      }
+    
+      #postForm input[type="text"],
+      #postForm textarea {
+        font-size: 1rem;
+      }
+    
+      .post-buttons {
+        position: static;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 10px;
+      }
+    
+      .post-buttons button {
+        flex: 1;
+      }
+    
+      .image-preview {
+        max-width: 100%;
+      }
+    
+      .post img {
+        max-width: 100%;
+        height: auto;
+      }
 }
 
 @media (max-width: 480px) {
@@ -1580,8 +1739,11 @@ transition: all .25s ease;
   }
   
   /* Indywidualne kolory dla każdego przycisku */
-  .contact-btn:nth-child(1) { background-color: #0078FF; } /* Messenger */
-  .contact-btn:nth-child(2) { background-color: #3b5998; } /* Facebook */
+  .contact-btn:nth-child(1) {
+    background: linear-gradient(135deg, #00B2FF 0%, #8B5CF6 50%, #FF2E93 100%);
+  }
+  
+  .contact-btn:nth-child(2) { background-color: #0078FF; } /* Facebook */
   .contact-btn:nth-child(3) { background: linear-gradient(45deg, #F58529, #DD2A7B, #515BD4); } /* Instagram */
   .contact-btn:nth-child(4) { background-color: #28A745; } /* Telefon */
   .contact-btn:nth-child(5) { background-color: #000; } /* Email */
