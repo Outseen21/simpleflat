@@ -333,9 +333,24 @@
     <textarea id="contentInput" placeholder="Treść posta"></textarea>
     <input type="file" id="imageInput" accept="image/*" />
     <button id="savePostBtn">Zapisz</button>
+
   </div>
 
   <div id="posts"></div>
+</section>
+<section class="blog-catalog">
+  <h2>Katalog Bloga</h2>
+  
+
+
+<div id="blogCatalog" class="blog-grid"></div>
+<div id="blogPostViewer" class="blog-post-viewer hidden">
+  <button onclick="document.getElementById('blogPostViewer').classList.add('hidden')" style="float:right;margin-top:-10px;">Zamknij</button>
+  <h2 id="postViewTitle"></h2>
+  <p id="postViewContent"></p>
+</div>
+   
+  </div>
 </section>
 
 <footer class="footer_wrapper wow fadeIn" id="contact" data-wow-delay="0.3s">

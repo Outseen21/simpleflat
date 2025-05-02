@@ -238,105 +238,106 @@ wow = new WOW({
 
 wow.init();
 });
-const toggleFormBtn = document.getElementById("toggleFormBtn");
-const postForm = document.getElementById("postForm");
-const savePostBtn = document.getElementById("savePostBtn");
-const titleInput = document.getElementById("titleInput");
-const contentInput = document.getElementById("contentInput");
-const imageInput = document.getElementById("imageInput");
-const postsContainer = document.getElementById("posts");
 
-let posts = JSON.parse(localStorage.getItem("blogPosts")) || [];
-let editIndex = null;
+// Minimal custom.js with working blog save/load and display
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleFormBtn = document.getElementById("toggleFormBtn");
+  const postForm = document.getElementById("postForm");
+  const savePostBtn = document.getElementById("savePostBtn");
+  const titleInput = document.getElementById("titleInput");
+  const contentInput = document.getElementById("contentInput");
+  const imageInput = document.getElementById("imageInput");
+  const blogCatalog = document.getElementById("blogCatalog");
 
-toggleFormBtn.onclick = () => {
-  postForm.classList.toggle("hidden");
-  clearForm();
-};
+  let posts = JSON.parse(localStorage.getItem("blogPosts")) || [];
 
-function clearForm() {
-  titleInput.value = "";
-  contentInput.value = "";
-  imageInput.value = "";
-  editIndex = null;
-}
-
-function renderPosts() {
-  postsContainer.innerHTML = "";
-  posts.forEach((post, index) => {
-    const postEl = document.createElement("div");
-    postEl.className = "post";
-    postEl.innerHTML = `
-      <div class="post-buttons">
-        <button onclick="editPost(${index})">Edytuj</button>
-        <button onclick="deletePost(${index})">Usuń</button>
-      </div>
-      <h3>${post.title}</h3>
-      <small>${post.date}</small>
-      <p>${post.content}</p>
-      ${post.image ? `<img src="${post.image}" />` : ""}
-    `;
-    postsContainer.appendChild(postEl);
-  });
-}
-
-function deletePost(index) {
-  if (confirm("Na pewno usunąć ten post?")) {
-    posts.splice(index, 1);
-    localStorage.setItem("blogPosts", JSON.stringify(posts));
-    renderPosts();
+  function clearForm() {
+    titleInput.value = "";
+    contentInput.value = "";
+    imageInput.value = "";
   }
-}
 
-function editPost(index) {
-  const post = posts[index];
-  titleInput.value = post.title;
-  contentInput.value = post.content;
-  postForm.classList.remove("hidden");
-  editIndex = index;
-}
+  function addToCatalog(post) {
+    const card = document.createElement("div");
+    card.className = "blog-card";
 
-savePostBtn.onclick = () => {
-  const title = titleInput.value.trim();
-  const content = contentInput.value.trim();
-  if (!title || !content) return alert("Tytuł i treść są wymagane.");
+    const img = document.createElement("img");
+    img.src = post.image || "img/default.jpg";
 
-  const file = imageInput.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      savePost(title, content, reader.result);
+    const overlay = document.createElement("div");
+    overlay.className = "blog-title";
+    overlay.innerText = post.title;
+
+    card.appendChild(img);
+    card.appendChild(overlay);
+
+    card.addEventListener("click", () => {
+      const viewer = document.getElementById("blogPostViewer");
+      document.getElementById("postViewTitle").textContent = post.title;
+      document.getElementById("postViewContent").textContent = post.content;
+      viewer.classList.remove("hidden");
+      viewer.scrollIntoView({ behavior: "smooth" });
+    });
+
+    blogCatalog.prepend(card);
+  }
+
+  function renderCatalog() {
+    blogCatalog.innerHTML = "";
+    posts.forEach(post => addToCatalog(post));
+  }
+ 
+  function showPost(title, content, image) {
+    const viewer = document.getElementById("blogPostViewer");
+    document.getElementById("postViewTitle").textContent = title;
+    document.getElementById("postViewContent").textContent = content;
+    const img = document.getElementById("postViewImage");
+    img.src = image || "img/default.jpg";
+    viewer.classList.remove("hidden");
+    window.scrollTo({ top: viewer.offsetTop - 100, behavior: "smooth" });
+  }
+  
+  function closePostViewer() {
+    document.getElementById("blogPostViewer").classList.add("hidden");
+  }
+  function savePost(title, content, image) {
+    const post = {
+      title,
+      content,
+      date: new Date().toLocaleDateString(),
+      image: image || null
     };
-    reader.readAsDataURL(file);
-  } else {
-    const image = editIndex !== null ? posts[editIndex].image : null;
-    savePost(title, content, image);
-  }
-};
 
-function savePost(title, content, image) {
-  const post = {
-    title,
-    content,
-    date: new Date().toLocaleDateString(),
-    image: image || null
+    posts.unshift(post);
+    localStorage.setItem("blogPosts", JSON.stringify(posts));
+    renderCatalog();
+    clearForm();
+    postForm.classList.add("hidden");
+    toggleFormBtn.classList.remove("hidden");
+  }
+
+  toggleFormBtn.onclick = () => {
+    postForm.classList.remove("hidden");
+    toggleFormBtn.classList.add("hidden");
+    clearForm();
   };
 
-  if (editIndex !== null) {
-    posts[editIndex] = post;
-  } else {
-    posts.unshift(post);
-  }
+  savePostBtn.onclick = () => {
+    const title = titleInput.value.trim();
+    const content = contentInput.value.trim();
+    if (!title || !content) return alert("Tytuł i treść są wymagane.");
 
-  localStorage.setItem("blogPosts", JSON.stringify(posts));
-  renderPosts();
-  clearForm();
-  postForm.classList.add("hidden");
-}
+    const file = imageInput.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        savePost(title, content, reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      savePost(title, content, null);
+    }
+  };
 
-renderPosts();
-toggleFormBtn.onclick = () => {
-  postForm.classList.remove("hidden");     // pokazuje formularz
-  toggleFormBtn.classList.add("hidden");   // ukrywa przycisk „Dodaj Post”
-  clearForm();
-};
+  renderCatalog();
+});
